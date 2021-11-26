@@ -308,7 +308,7 @@ void Entry::resetPassword() {
 
 bool Entry::checkPassword(string pw) {
 	SHA256 sha256;
-	sha256 = SHA256(pw);
+	sha256 = sha256(pw);
 	if (this -> Password.compare(sha256) == 0) {
 		return true;
 	}
