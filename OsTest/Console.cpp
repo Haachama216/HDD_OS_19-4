@@ -76,30 +76,6 @@ void sleep(int x) {
     std::this_thread::sleep_for(std::chrono::milliseconds(x));
 }
 
-string addSalt(string pw) {
-    uint8_t salt[3] = { 0x4E , 0x48 ,0x54 };
-
-    // Random positon of salt
-    int r1 = rand() % (pw.length());
-    int r2 = rand() % (pw.length());
-    int r3 = rand() % (pw.length());
-
-    // XOR with salt
-    pw[r1] = pw[r1] ^ salt[0];
-    pw[r2] = pw[r2] ^ salt[1];
-    pw[r3] = pw[r3] ^ salt[2];
-
-    return pw;
-}
-
-string addPepper(string pw) {
-    char pepper = rand() % (255 + 1);
-    
-    pw = pw + pepper;
-
-    return pw;
-}
-
 void FixConsoleWindow() {
     HWND consoleWindow = GetConsoleWindow();
     LONG style = GetWindowLong(consoleWindow, GWL_STYLE);
